@@ -1,0 +1,18 @@
+<h1>Shopping Cart</h1>
+<p>You're about to purchase the following products.</p>
+<%= form_for @cart do |f| %>
+  <table>
+    <tr>
+      <th>Product</th>
+      <th>Amount</th>
+    </tr>
+    <%= f.fields_for :line_items do |builder| %>
+      <tr>
+        <td><%= builder.object.product.name %></td>
+        <td><%= builder.text_field :count, :style => "width: 25px;" %></td>
+      </tr>
+    <% end %>
+  </table>
+  <%= link_to "Back", products_path %>  |
+  <%= f.submit "Update" %>
+<% end %>

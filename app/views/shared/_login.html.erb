@@ -1,0 +1,7 @@
+<div id="auth">
+  <% if logged_in? %>
+    <%= link_to "Logout", user_session_path(:current), :method => :delete, :confirm => "Are you sure?"%>
+  <% else %>
+     <%= link_to "Login", login_path %> | <%= link_to "Sign Up", signup_path %>
+  <% end %>
+</div>
