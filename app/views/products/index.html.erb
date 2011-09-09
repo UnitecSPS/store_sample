@@ -9,12 +9,12 @@
       <%= number_to_currency(product.price) %>
       <% if logged_in? %>
          |
-        <%= link_to "Add to Cart", carts_path(:product_id => product.id), :method => "post", :confirm => "Are you sure?" %>
+        <%= link_to "Add to Cart", carts_path(:product_id => product.id), :method => "post", :confirm => "Are you sure?", :remote => true %>
       <% end %>
     </div>
   </div>
 <% end %>
 
-<% if logged_in? && current_user.cart.present? %>
-  <p><%= link_to "Go to Cart", current_user.cart %></p>
+<% if logged_in? && current_user.cart.present? && current_user.cart.line_items.present? %>
+  <p><%= link_to "Go to Cart", current_user.cart, :id => "goto_cart_link" %></p>
 <% end %>

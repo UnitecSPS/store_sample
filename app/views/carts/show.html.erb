@@ -1,4 +1,5 @@
 <h1>Shopping Cart</h1>
+<h3><%= link_to "Back", products_path %></h3>
 <p>You're about to purchase the following products.</p>
 <%= form_for @cart do |f| %>
   <table>
@@ -13,6 +14,6 @@
       </tr>
     <% end %>
   </table>
-  <%= link_to "Back", products_path %>  |
+  <%= link_to "Checkout", new_order_path %>  |
   <%= f.submit "Update" %>
 <% end %>

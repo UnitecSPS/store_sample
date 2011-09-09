@@ -1,0 +1,30 @@
+<h1>Place Your Order</h1>
+<p>The following products are in this order:</p>
+<table>
+  <tr>
+    <th>Product</th>
+    <th>Price</th>
+    <th>Amount</th>
+    <th>Cost</th>
+  </tr>
+  <% @order.line_items.each do |ln| %>
+    <tr>
+      <td style="width: 150px;"><%= ln.product.name %></td>
+      <td><%= number_to_currency(ln.product.price) %></td>
+      <td style="text-align: right;" ><%= ln.count %></td>
+      <td style="text-align: right;" ><%= ln.count * ln.product.price %></td>
+    </tr>
+  <% end %>
+  <tr>
+    <td colspan="3" style="text-align: right;"><strong>Total:</strong></td>
+    <td><strong><%= @order.total %></strong></td>
+  </tr>
+</table>
+
+<%= form_for @order do |f| %>
+  <%= f.label :address %><br/>
+  <%= f.text_area :address, :rows => 3 %>
+  <p>
+    <%= f.submit "Place Order" %>
+  </p>
+<% end %>

@@ -1,0 +1,7 @@
+$('#flash_notice').remove();
+
+$('#container').children().first().before('<div id="flash_notice">Product Added to Cart</div>');
+
+if ( $('#goto_cart_link').length == 0 ){
+  $('#container').append("<p><%= escape_javascript(link_to("Go to Cart", current_user.cart, :id => "goto_cart_link")) %></p>");
+}

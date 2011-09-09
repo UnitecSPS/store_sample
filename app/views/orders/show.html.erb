@@ -1,0 +1,9 @@
+<h1>Order Details</h1>
+<p>We have charged <%= number_to_currency @order.total %> from your credit card.</p>
+<p>
+  This order will be shipped to the following address:<br/>
+  <%= @order.address %>
+</p>
+<p>
+  <%= link_to "Back", root_url %>
+</p>
