@@ -1,7 +1,7 @@
 <h1>Shopping Cart</h1>
 <h3><%= link_to "Back", products_path %></h3>
 <p>You're about to purchase the following products.</p>
-<%= form_for @cart do |f| %>
+<%= form_for @cart, :remote => true do |f| %>
   <table>
     <tr>
       <th>Product</th>
@@ -10,7 +10,7 @@
     <%= f.fields_for :line_items do |builder| %>
       <tr>
         <td><%= builder.object.product.name %></td>
-        <td><%= builder.text_field :count, :style => "width: 25px;" %></td>
+        <td><%= builder.text_field :count, :style => "width: 25px;", :class => "text_field" %></td>
       </tr>
     <% end %>
   </table>

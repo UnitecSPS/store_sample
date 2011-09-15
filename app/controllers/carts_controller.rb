@@ -23,7 +23,9 @@ class CartsController < ApplicationController
   def update
     @cart = current_user.cart
     if @cart.update_attributes(params[:cart])
-      redirect_to @cart, :notice => "Cart Updated"
+      unless request.xhr?
+        redirect_to @cart, :notice => "Cart Updated"
+      end
     end
   end
 

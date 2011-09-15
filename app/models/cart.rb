@@ -3,6 +3,7 @@ class Cart < ActiveRecord::Base
   has_many :line_items
   accepts_nested_attributes_for :line_items
   before_update :remove_empty_line_items
+  include TotalCalculator
   
   protected
   def remove_empty_line_items

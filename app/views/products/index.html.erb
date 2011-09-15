@@ -16,5 +16,5 @@
 <% end %>
 
 <% if logged_in? && current_user.cart.present? && current_user.cart.line_items.present? %>
-  <p><%= link_to "Go to Cart", current_user.cart, :id => "goto_cart_link" %></p>
+  <%= render :partial => "carts/details", :locals => { :cart => current_user.cart } %>
 <% end %>

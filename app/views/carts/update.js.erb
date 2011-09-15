@@ -1,0 +1,12 @@
+$('#flash_notice').remove();
+
+$('#container').children().first().before('<div id="flash_notice">Cart Updated</div>');
+
+$('.text_field').each(function(index, text_field){
+  if (text_field.value == "0" ) {
+    var id = $(text_field).attr("id");
+    id = "#" + id.substring(0, id.indexOf("count")) + "id";
+    $(id).remove();
+    $(text_field).parent().parent().remove();
+  }
+});

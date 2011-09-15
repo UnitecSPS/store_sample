@@ -1,0 +1,11 @@
+<div id="cart_details">
+  <%= link_to "Go to Cart", cart %>
+  <br/>
+  <span id="product_count">
+    <%= pluralize(cart.product_count, "Product") %>
+  </span>
+  <span>in Cart.</span>    
+  <br/>
+  <strong>Total: </strong>
+  <span id="cart_total"><%= number_to_currency cart.total %></span>
+</div>
